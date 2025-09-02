@@ -1,0 +1,51 @@
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+@import "tailwindcss";
+
+@theme {
+  --breakpoint-xs: 30rem;
+}
+
+:root {
+  --d-sbl: #C2DDFF;
+  --d-or: #FE5500;
+  --d-ye: #FFE24F;
+  --d-wh: #fcfcfc;
+  --d-bk: #171717;
+  --d-gr1: #333;
+  --d-gr2: #ddd;
+  
+  --c-background: var(--d-sbl);
+  --c-content: var(--d-wh);
+  --c-font: var(--d-bk);
+  --c-border: var(--d-or);
+  --c-point: var(--d-ye);
+}
+
+@media (prefers-color-scheme: dark) {
+  /* 다크모드 설정 시*/
+  :root {
+    --c-background: var(--d-bk);
+    --c-content: var(--d-gr1);
+    --c-font: var(--d-wh);
+    --c-border: var(--d-ye);
+    --c-point: var(--d-or);
+  }
+}
+.dark{
+  --c-background: var(--d-bk);
+  --c-content: var(--d-gr1);
+  --c-font: var(--d-wh);
+  --c-border: var(--d-ye);
+  --c-point: var(--d-or);
+}
+
+body {
+  line-height: 1;
+  font-family: 'Pretendard', Helvetica, sans-serif;
+  transition: .3s;
+}
+@media (max-height: 48rem) and (min-width: 48rem) {
+  .h-sm{
+    align-items: flex-start;
+  }
+}
