@@ -4,9 +4,10 @@ import React, { useState, useMemo }  from 'react'
 import { useRouter } from 'next/navigation';
 
 import SortList from '@/app/list/SortList';
+import JournalPopup from '@/components/JournalPopup';
+
 import { NoImage, Popup, SqureBtn } from '@/ui/ui';
 import { Star, Lock } from 'lucide-react';
-import style from '@/ui/input.module.scss'
 
 interface DataProps {
   journals: Journal[];
@@ -16,7 +17,6 @@ export default function JournalList({journals}: DataProps) {
   const router = useRouter();
   const [selectedNote, setSelectedNote] = useState<Journal | null>(null);
   const [secretOpen, setSecretOpen] = useState(false);
-  const [password, setPassword] = useState('');
 
   const [sort, setSort] = useState('new');
   const [year, setYear] = useState('all');
@@ -44,13 +44,13 @@ export default function JournalList({journals}: DataProps) {
     };
   }
   
-  const secretPwConfirm = () =>{
+  const secretPwConfirm = async (password: string) =>{
     if(selectedNote&& password === selectedNote.password){
       router.push(`/list/detail?id=${selectedNote.journal_id}`);
     }else {
       alert('비밀번호가 일치하지 않습니다!');
     } 
-    
+     
   }
 
 
@@ -89,18 +89,10 @@ export default function JournalList({journals}: DataProps) {
           ))}
         </ul>
         {selectedNote && secretOpen && (
-          <Popup onClose={()=>setSecretOpen(false)}>
-            <p className='mb-2'>비밀번호를 입력하세요.</p>
-            <input
-              type="password"
-              className={`${style.default}`}
-              onChange={(e) => setPassword(e.target.value)}
-              onKeyDown={(e)=>{
-                if (e.key === 'Enter'){secretPwConfirm();}
-              }}
-            />
-            <SqureBtn className='mt-4 bg-[var(--c-border)] text-[var(--c-content)]' onClick={secretPwConfirm}>확인</SqureBtn>
-          </Popup>
+          <JournalPopup
+            onConfirm={secretPwConfirm}
+            onClose={()=>setSecretOpen(false)}
+          />
         )}
       </div>
     </div>

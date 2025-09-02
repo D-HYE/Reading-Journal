@@ -16,9 +16,6 @@ export default function JournalDetail({journal}:{journal:Journal}) {
     const [editOpen, setEditOpen] = useState(false);
     const [deleteOpen, setDeleteOpen] = useState(false);
 
-
-
-
     const editPwConfirm = async (password: string) => {
         const ok = await checkPassword(password, journal.password);
         if (ok) {
@@ -56,19 +53,18 @@ export default function JournalDetail({journal}:{journal:Journal}) {
                 <Link href="/"><SqureBtn className='bg-[var(--d-gr2)] text-[var(--d-gr1)]'>목록</SqureBtn></Link>
                 <SqureBtn className='text-[var(--c-border)]' onClick={()=>setEditOpen(true)}>수정</SqureBtn>
             </div>
-                {editOpen && (
-                    <JournalPopup
-                    onConfirm={editPwConfirm}
-                    onClose={() => setEditOpen(false)}
-                    />
-                )}
-
-                {deleteOpen && (
-                    <JournalPopup
-                    onConfirm={deletePwConfirm}
-                    onClose={() => setDeleteOpen(false)}
-                    />
-                )}
+            {editOpen && (
+                <JournalPopup
+                onConfirm={editPwConfirm}
+                onClose={() => setEditOpen(false)}
+                />
+            )}
+            {deleteOpen && (
+                <JournalPopup
+                onConfirm={deletePwConfirm}
+                onClose={() => setDeleteOpen(false)}
+                />
+            )}
         </div>
     )
 }
