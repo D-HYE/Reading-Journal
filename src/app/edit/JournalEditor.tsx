@@ -17,20 +17,20 @@ export default function JournalEditor({journal}:{journal:Journal}) {
     };
 
     const saveJournal = async () =>{
-        if (!journal) return;
+        if (!localJournal) return;
         const supabase = await createClient();
         const { error } = await supabase
             .from('reading_journal')
             .update({
-                book_title: journal.book_title,
-                book_cover: journal.book_cover,
-                book_author: journal.book_author,
-                start_date: journal.start_date,
-                end_date: journal.end_date,
-                rating: journal.rating,
-                content: journal.content,
-                password: journal.password,
-                secret: journal.secret
+                book_title: localJournal.book_title,
+                book_cover: localJournal.book_cover,
+                book_author: localJournal.book_author,
+                start_date: localJournal.start_date,
+                end_date: localJournal.end_date,
+                rating: localJournal.rating,
+                content: localJournal.content,
+                password: localJournal.password,
+                secret: localJournal.secret
             })
             .eq('journal_id', localJournal.journal_id)
             .single();
