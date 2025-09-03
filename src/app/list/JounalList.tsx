@@ -22,6 +22,7 @@ export default function JournalList({journals}: DataProps) {
   const [year, setYear] = useState('all');
 
   const filteredJournals = journals
+  
   .filter(j => {
     if (year === 'all') return true;
     return j.end_date?.toString().startsWith(year) ?? false;
@@ -59,7 +60,7 @@ export default function JournalList({journals}: DataProps) {
 
   return(
     <div>
-      <SortList onSortChange={setSort} onYearChange={setYear}/>
+      <SortList sort={sort} year={year} onSortChange={setSort} onYearChange={setYear}/>
       <div className='md:h-[40rem] overflow-y-scroll'>
         <div className='px-4 py-2 bg-[var(--d-gr2)] text-[var(--d-gr1)] text-sm'>{journalCount} 권의 노트가 작성되었습니다.</div>
         <ul className='grid grid-cols-3 xs:grid-cols-4 gap-2 p-4 pl-2 '>

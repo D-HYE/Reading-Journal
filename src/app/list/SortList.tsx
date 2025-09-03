@@ -4,11 +4,13 @@ import React, { useState } from 'react'
 import Select from '@/components/Select';
 
 interface SortListProps {
-  onSortChange?: (value: string) => void;
-  onYearChange?: (value: string) => void;
+    sort: string;
+    year: string; 
+    onSortChange?: (value: string) => void;
+    onYearChange?: (value: string) => void;
 }
 
-export default function SortList({onSortChange, onYearChange }:SortListProps) {
+export default function SortList({sort, year, onSortChange, onYearChange }:SortListProps) {
 
     const yearSelector = [
         { value: 'all', label: '전체보기' },
@@ -32,12 +34,14 @@ export default function SortList({onSortChange, onYearChange }:SortListProps) {
             <Select
             options = {sortSelector}
             initLabel = '최신순'
+            value={sort}
             onChange={onSortChange}
             className='min-w-[8.125rem]'
             />
             <Select
             options = {yearSelector}
             initLabel = '전체보기'
+            value={year}
             onChange={onYearChange}
             className='min-w-[7rem]'
             />

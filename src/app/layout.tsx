@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     siteName: "다혜의 독서 노트",
     images: [
       {
-        url: "/og-image.png",
+        url: "/og-image.jpg",
         width: 1200,
         height: 630,
         alt: "다혜의 독서노트"
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "다혜의 독서노트",
     description: "Next.js(TypeScript)와 Supabase를 활용해 데이터 저장과 배포까지 관리 할 수 있는 독서 노트로 실사용을 위해 만들었습니다.",
-    images: ["/og-image.png"],
+    images: ["/og-image.jpg"],
   },
 };
 
