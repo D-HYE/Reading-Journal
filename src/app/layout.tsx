@@ -11,8 +11,41 @@ import "@/styles/componentsCustom.css";
 
 export const metadata: Metadata = {
   title: "다혜의 독서 노트",
-  description: "Next.js(TypeScript)와 Supabase를 활용해 데이터 저장과 배포까지 관리 할 수 있는 독서 노트입니다.",
+  description: "Next.js(TypeScript)와 Supabase를 활용해 데이터 저장과 배포까지 관리 할 수 있는 독서 노트로 실사용을 위해 만들었습니다.",
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/favicon-32x32.png", type: "image/png", sizes: "32x32" },
+      { url: "/favicon-16x16.png", type: "image/png", sizes: "16x16" },
+    ],
+    apple: "/favicon-192x192.png",
+  },
+  manifest: "/site.webmanifest",
+  themeColor: "var(--d-sbl)",
+  openGraph: {
+    title: "다혜의 독서 노트",
+    description: "Next.js(TypeScript)와 Supabase를 활용해 데이터 저장과 배포까지 관리 할 수 있는 독서 노트로 실사용을 위해 만들었습니다.",
+    url: "https://reading-journal-one.vercel.app/",
+    siteName: "다혜의 독서 노트",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "다혜의 독서노트"
+      }
+    ],
+    locale: "ko_KR",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "다혜의 독서노트",
+    description: "Next.js(TypeScript)와 Supabase를 활용해 데이터 저장과 배포까지 관리 할 수 있는 독서 노트로 실사용을 위해 만들었습니다.",
+    images: ["/og-image.png"],
+  },
 };
+
 
 export default function Layout({
   children,
