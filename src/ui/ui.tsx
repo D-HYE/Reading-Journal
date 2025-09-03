@@ -1,7 +1,7 @@
 "use client";
 import { useSearchParams, useRouter } from 'next/navigation';
-
 import { ArrowLeft, ImageOff, X, BookOpenText} from 'lucide-react';
+import { Suspense } from "react";
 
 type BtnProps = {
   children?: React.ReactNode;
@@ -31,7 +31,7 @@ export function RoundBtn({children, onClick, className}:BtnProps) {
   )
 }
 
-export function BackspaceBtn() {
+function Backspace() {
   const router = useRouter();
   const searchParans = useSearchParams();
   const from = searchParans.get('from');
@@ -50,6 +50,14 @@ export function BackspaceBtn() {
         <ArrowLeft size={24} className="text-[var(--c-border)]"/>
       </button>
     </div>
+  )
+}
+
+export function BackspaceBtn() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <Backspace />
+    </Suspense>
   )
 }
 

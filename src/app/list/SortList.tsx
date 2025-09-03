@@ -21,8 +21,10 @@ export default function SortList({onSortChange, onYearChange }:SortListProps) {
     ]
     const sortSelector = [
         { value: 'new', label: '최신순' },
+        { value: 'old', label: '오래된순' },
         { value: 'high', label: '높은별점순' },
         { value: 'low', label: '낮은별점순' },
+        { value: 'saved', label: '작성순' },
     ]
 
     return (

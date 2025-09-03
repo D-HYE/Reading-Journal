@@ -25,7 +25,7 @@ export default function JournalLayout({mode, journal, onChange, onDeleteClick}: 
             <div className='xs:px-4 xs:py-4 xs:grid xs:grid-cols-3 xs:gap-4 md:gap-8 border-b-2' style={{borderColor:'var(--c-border)'}}>
                 <div className='flex justify-center items-center py-4 xs:p-0' style={{background: 'var(--c-background)'}}>
                     {journal.book_cover ? (
-                        <img src={journal.book_cover} alt={journal.book_title} className='w-1/2 xs:w-full mx-auto'/>
+                        <img src={journal.book_cover} alt={journal.book_title} className='w-1/2 xs:w-full md:max-h-[20rem] mx-auto'/>
                     ):(
                         <NoImage />
                     )}

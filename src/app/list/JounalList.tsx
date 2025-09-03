@@ -6,7 +6,7 @@ import { useRouter } from 'next/navigation';
 import SortList from '@/app/list/SortList';
 import JournalPopup from '@/components/JournalPopup';
 
-import { NoImage, Popup, SqureBtn } from '@/ui/ui';
+import { NoImage} from '@/ui/ui';
 import { Star, Lock } from 'lucide-react';
 
 interface DataProps {
@@ -28,6 +28,8 @@ export default function JournalList({journals}: DataProps) {
   })
   .sort((a, b) => {
     if (sort === 'new') return new Date(b.end_date!).getTime() - new Date(a.end_date!).getTime();
+    if (sort === 'old') return new Date(a.end_date!).getTime() - new Date(b.end_date!).getTime();
+    if (sort === 'saved') return new Date(b.created_at!).getTime() - new Date(a.created_at!).getTime();
     if (sort === 'high') return (b.rating ?? 0) - (a.rating ?? 0);
     if (sort === 'low') return (a.rating ?? 0) - (b.rating ?? 0);
     return 0;
