@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { ThemeProvider } from "next-themes";
 
 import ThemeBtn from '@/components/ThemeChange';
+import DLogo from '@/public/d-logo.svg'
 
 import "react-datepicker/dist/react-datepicker.css";
 import "@/app/globals.css";
@@ -56,6 +57,10 @@ export default function Layout({
     <html lang="ko" suppressHydrationWarning>
       <body className="bg-[var(--c-content)] md:bg-[var(--c-background)] text-[var(--c-font)]">
         <ThemeProvider attribute="class" defaultTheme="light">
+          <h1 className="fixed right-[-5rem] bottom-[-1rem] z-[-1] opacity-50">
+            <span className="hidden">다혜의 독서노트</span>
+            <img src="/d-logo.svg" alt="d-logo"/>
+          </h1>
           <div className="flex justify-center items-center h-sm md:h-screen">
             <div style={{background: 'var(--c-content)', borderColor: 'var(--c-border)'}} className="relative w-full md:max-w-[calc(48rem-2rem)] md:h-[48rem] md:border-2 md:rounded-xl">
               {children}
